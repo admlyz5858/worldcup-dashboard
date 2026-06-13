@@ -136,6 +136,17 @@ a.reset{color:inherit;text-decoration:none}
 .opend{margin-top:14px;display:flex;flex-direction:column;gap:8px}
 .opend a{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--amber) 8%,transparent);border:1px solid color-mix(in srgb,var(--amber) 22%,transparent);border-radius:11px;padding:10px 13px;text-decoration:none;color:var(--ink);font-size:13px}
 .opend .od{font-family:var(--mono);font-size:11px;color:var(--amber);margin-left:auto}
+/* onay sorusu */
+#q-card{border-color:color-mix(in srgb,var(--cyan) 35%,var(--panel-line))}
+.qbox{padding:6px 0 4px}
+.qbox+.qbox{border-top:1px solid var(--panel-line);margin-top:12px;padding-top:14px}
+.qtext{font-size:14.5px;color:var(--ink);line-height:1.55;margin:10px 0 13px}
+.qtext b{color:var(--cream)}
+.qbtns{display:flex;gap:10px}
+.qbtns a{flex:1;text-align:center;text-decoration:none;border-radius:12px;padding:14px;font-weight:700;font-size:15px}
+.qyes{background:color-mix(in srgb,var(--green) 18%,var(--bg2));color:var(--green);border:1px solid color-mix(in srgb,var(--green) 45%,transparent)}
+.qno{background:color-mix(in srgb,var(--red) 16%,var(--bg2));color:var(--red);border:1px solid color-mix(in srgb,var(--red) 45%,transparent)}
+.qbtns a:active{transform:translateY(1px)}
 </style>
 </head>
 <body>
@@ -165,6 +176,11 @@ a.reset{color:inherit;text-decoration:none}
       <div class="lab" id="next-date">—</div>
       <div class="clock" id="clock"></div>
     </div>
+  </section>
+
+  <section class="card anim d1" id="q-card" style="display:none">
+    <div class="eyebrow" style="color:var(--cyan)">❓ Onayını bekliyorum</div>
+    <div id="q-list"></div>
   </section>
 
   <div class="chrow anim d2" id="chrow"></div>
@@ -227,6 +243,7 @@ a.reset{color:inherit;text-decoration:none}
 
 <script>
 const STATUS_URL = "./status.json";
+const REPO = "admlyz5858/worldcup-dashboard";
 const PIPE_ICONS = {prepare:"🎞", render:"⚙", merge:"🗜", publish:"▲"};
 let nextAt = null;
 
@@ -314,10 +331,21 @@ function render(d){
   document.getElementById("o-pending").innerHTML=(d.orders||[]).map(o=>
     `<a href="${o.url}" target="_blank" rel="noopener">📥 <span>${(o.title||"").replace(/^\[ÜRETİM\]\s*/,"")}</span><span class="od">#${o.number}</span></a>`
   ).join("");
+  // onay soruları → Evet/Hayır butonları (cevap = hazır doldurulmuş issue)
+  const qc=document.getElementById("q-card"), ql=document.getElementById("q-list");
+  const qs=d.questions||[];
+  if(qs.length){
+    qc.style.display="block";
+    ql.innerHTML=qs.map(q=>{
+      const mk=(ans,emo)=>`https://github.com/${REPO}/issues/new?title=${encodeURIComponent("[CEVAP] #"+q.number+" "+ans)}&labels=cevap&body=${encodeURIComponent("Soru #"+q.number+": "+(q.title||"")+"\n\nCevap: "+ans+" "+emo)}`;
+      const body=(q.body||"").replace(/^Dashboard.*$/m,"").replace(/[#>*]/g,"").trim().replace(/\n+/g,"<br>");
+      const text=(q.title?`<b>${q.title}</b>`:"")+(body?`<br>${body}`:"");
+      return `<div class="qbox"><div class="qtext">${text}</div><div class="qbtns"><a class="qyes" href="${mk("EVET","✅")}" target="_blank" rel="noopener">✅ Evet</a><a class="qno" href="${mk("HAYIR","❌")}" target="_blank" rel="noopener">❌ Hayır</a></div></div>`;
+    }).join("");
+  } else { qc.style.display="none"; }
 }
 
 // —— üretim siparişi formu ——
-const ORDER_REPO="admlyz5858/worldcup-dashboard";
 let oType="Sonuç";
 document.querySelectorAll("#o-type button").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll("#o-type button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); oType=b.dataset.v;
@@ -330,7 +358,7 @@ document.getElementById("o-submit").addEventListener("click",()=>{
   const chans=[tr?"TR":null,en?"EN":null].filter(Boolean).join(", ");
   const title=`[ÜRETİM] ${match} · ${oType}`;
   const body=[`Dashboard üretim siparişi`,``,`- Maç/konu: ${match}`,`- Tip: ${oType}`,`- Kanallar: ${chans}`,``,`> Claude bu siparişi doğrulanmış gerçek veriyle üretip ilgili kanal(lar)a yükleyecek, sonra bu issue'yu kapatacak.`].join("\n");
-  const url=`https://github.com/${ORDER_REPO}/issues/new?title=${encodeURIComponent(title)}&labels=order&body=${encodeURIComponent(body)}`;
+  const url=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&labels=order&body=${encodeURIComponent(body)}`;
   window.open(url,"_blank","noopener");
 });
 

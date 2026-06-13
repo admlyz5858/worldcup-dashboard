@@ -84,6 +84,7 @@ today_count = sum(1 for p in published if (p.get("published_at") or "").startswi
 # bekleyen üretim siparişleri (public issues, label=order — auth gerekmez)
 import urllib.request
 orders = []
+questions = []
 try:
     req = urllib.request.Request(
         "https://api.github.com/repos/admlyz5858/worldcup-dashboard/issues?state=open&per_page=30",
@@ -92,11 +93,15 @@ try:
         if "pull_request" in it:
             continue
         labs = [l["name"] for l in it.get("labels", [])]
-        # etiket 'order' VEYA başlık '[ÜRETİM]' ile başlıyorsa sipariş say (mobil etiket düşürebiliyor)
-        if "order" in labs or it.get("title", "").startswith("[ÜRETİM]"):
-            orders.append({"number": it["number"], "title": it["title"], "url": it["html_url"], "created_at": it["created_at"]})
+        title = it.get("title", "")
+        # etiket düşebildiği için başlık prefiksiyle de eşle
+        if "order" in labs or title.startswith("[ÜRETİM]"):
+            orders.append({"number": it["number"], "title": title, "url": it["html_url"], "created_at": it["created_at"]})
+        elif "soru" in labs or title.startswith("[SORU]"):
+            questions.append({"number": it["number"], "title": title.replace("[SORU]", "").strip(),
+                              "body": (it.get("body") or "")[:400], "url": it["html_url"], "created_at": it["created_at"]})
 except Exception as e:
-    print("ORDERS FAIL:", str(e)[:100])
+    print("ISSUES FAIL:", str(e)[:100])
 
 nxt = qd.get("next")
 queue = qd.get("queue", [])
@@ -114,6 +119,7 @@ status = {
     "next": nxt,
     "queue": queue,
     "orders": orders,
+    "questions": questions,
     "pipeline": pipeline,
     "stats": {"queue": len(queue), "today": today_count, "published": len(published),
               "total_views": total_views, "total_likes": sum(p["likes"] for p in published)},
