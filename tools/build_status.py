@@ -86,12 +86,15 @@ import urllib.request
 orders = []
 try:
     req = urllib.request.Request(
-        "https://api.github.com/repos/admlyz5858/worldcup-dashboard/issues?labels=order&state=open&per_page=20",
+        "https://api.github.com/repos/admlyz5858/worldcup-dashboard/issues?state=open&per_page=30",
         headers={"Accept": "application/vnd.github+json", "User-Agent": "wc-dash"})
     for it in json.load(urllib.request.urlopen(req, timeout=15)):
         if "pull_request" in it:
             continue
-        orders.append({"number": it["number"], "title": it["title"], "url": it["html_url"], "created_at": it["created_at"]})
+        labs = [l["name"] for l in it.get("labels", [])]
+        # etiket 'order' VEYA başlık '[ÜRETİM]' ile başlıyorsa sipariş say (mobil etiket düşürebiliyor)
+        if "order" in labs or it.get("title", "").startswith("[ÜRETİM]"):
+            orders.append({"number": it["number"], "title": it["title"], "url": it["html_url"], "created_at": it["created_at"]})
 except Exception as e:
     print("ORDERS FAIL:", str(e)[:100])
 
