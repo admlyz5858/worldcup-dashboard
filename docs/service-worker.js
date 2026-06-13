@@ -1,6 +1,7 @@
 // WC Yayın Merkezi — PWA service worker
-// Kabuk (shell) cache-first; status.json network-first (canlı veri taze kalsın, offline'da cache).
-const CACHE = "wc-dash-v1";
+// HTML + status.json: network-first (online'da hep taze, offline'da cache).
+// Statik varlıklar (ikon vb): cache-first. Cache sürümü değişince eski içerik temizlenir.
+const CACHE = "wc-dash-v2";
 const SHELL = [
   "./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png",
@@ -23,15 +24,17 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
   const url = new URL(e.request.url);
-  // canlı veri: önce ağ, başarısızsa cache
-  if (url.pathname.endsWith("status.json")) {
+  const isHTML = e.request.mode === "navigate" || url.pathname.endsWith("/") || url.pathname.endsWith(".html");
+  const isLive = url.pathname.endsWith("status.json");
+  if (isHTML || isLive) {
+    // önce ağ → taze içerik; başarısızsa cache (offline)
     e.respondWith(
       fetch(e.request)
         .then((r) => { const c = r.clone(); caches.open(CACHE).then((ca) => ca.put(e.request, c)); return r; })
-        .catch(() => caches.match(e.request))
+        .catch(() => caches.match(e.request).then((r) => r || caches.match("./index.html")))
     );
     return;
   }
-  // kabuk: önce cache, yoksa ağ
+  // statik varlıklar: önce cache
   e.respondWith(caches.match(e.request).then((r) => r || fetch(e.request)));
 });
