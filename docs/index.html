@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#080b14" />
+<title>Dünya Kupası 2026 · Yayın Merkezi</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="WC Yayın" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#080b14; --bg2:#0c1019; --panel:rgba(22,28,42,.55); --panel-line:rgba(240,243,250,.09);
+  --amber:#f0b15a; --amber-soft:#e8c98c; --cream:#f7efe0; --ink:#e7ecf5; --mut:#8b93a7; --faint:#5a6276;
+  --green:#7fcf9a; --red:#e8806f; --cyan:#84c5ec;
+  --disp:'Fraunces',Georgia,serif; --ui:'Jost',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--ui); color:var(--ink); background:var(--bg);
+  min-height:100vh; line-height:1.5; overflow-x:hidden;
+  padding:max(20px,env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora::before,.aurora::after{content:"";position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.18;animation:drift 26s ease-in-out infinite}
+.aurora::before{background:radial-gradient(circle,#f0b15a,transparent 60%);top:-18vmax;right:-12vmax}
+.aurora::after{background:radial-gradient(circle,#2f5f9e,transparent 60%);bottom:-20vmax;left:-14vmax;animation-delay:-13s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3vmax,4vmax) scale(1.12)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:1080px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:13px}
+.moon{width:42px;height:42px;flex:none;filter:drop-shadow(0 0 14px rgba(240,177,90,.45))}
+.brand h1{font-family:var(--disp);font-weight:600;font-size:25px;letter-spacing:.4px;color:var(--cream);line-height:1.05}
+.brand .ey{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-top:4px}
+.hstat{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.live{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:99px;font-size:12px;font-weight:500;letter-spacing:.5px;
+  background:color-mix(in srgb,var(--green) 14%,transparent);color:var(--green);border:1px solid color-mix(in srgb,var(--green) 30%,transparent)}
+.live.bad{background:color-mix(in srgb,var(--red) 14%,transparent);color:var(--red);border-color:color-mix(in srgb,var(--red) 30%,transparent)}
+.live .dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 currentColor}50%{opacity:.45;box-shadow:0 0 0 5px transparent}}
+.upd{font-family:var(--mono);font-size:12px;color:var(--mut)}
+.card{background:var(--panel);border:1px solid var(--panel-line);border-radius:20px;padding:22px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px -28px rgba(0,0,0,.8)}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);font-weight:500}
+.hero{position:relative;overflow:hidden;margin-bottom:18px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between}
+.hero .glow{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 80% 0%,rgba(240,177,90,.14),transparent 55%)}
+.hero>*{position:relative;z-index:1}
+.hero .ttl{font-family:var(--disp);font-weight:600;font-size:clamp(22px,5vw,33px);color:var(--cream);line-height:1.16;margin-top:8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-size:12px;font-weight:500;padding:5px 11px;border-radius:99px;background:rgba(240,243,250,.07);border:1px solid var(--panel-line);color:var(--ink)}
+.chip.amber{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 35%,transparent);background:color-mix(in srgb,var(--amber) 10%,transparent)}
+.cd{margin-top:20px}
+.cd .lab{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+.cd .clock{display:flex;gap:14px}
+.cd .unit{text-align:center}
+.cd .unit b{font-family:var(--mono);font-weight:700;font-size:clamp(28px,7vw,46px);color:var(--cream);line-height:1;letter-spacing:-1px;
+  text-shadow:0 0 30px rgba(240,177,90,.18)}
+.cd .unit span{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-top:6px}
+.cd .sep{font-family:var(--mono);font-size:34px;color:var(--amber);opacity:.5;align-self:flex-start;line-height:1.2}
+.pipe{display:flex;align-items:flex-start;justify-content:space-between;position:relative;margin-top:18px}
+.pipe::before{content:"";position:absolute;top:17px;left:8%;right:8%;height:2px;background:var(--panel-line)}
+.step{position:relative;display:flex;flex-direction:column;align-items:center;gap:9px;flex:1;text-align:center;z-index:1}
+.node{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;
+  background:var(--bg2);border:2px solid var(--panel-line);color:var(--faint);transition:.3s}
+.step.done .node{border-color:var(--amber);color:var(--amber);background:color-mix(in srgb,var(--amber) 14%,var(--bg2))}
+.step.active .node{border-color:var(--cyan);color:var(--cyan);animation:pulse 1.4s ease-in-out infinite}
+.step.failed .node{border-color:var(--red);color:var(--red)}
+.step .nm{font-size:12px;color:var(--mut);font-weight:500}
+.step.done .nm,.step.active .nm{color:var(--ink)}
+.step .dt{font-family:var(--mono);font-size:10px;color:var(--faint)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:16px 14px}
+.stat b{font-family:var(--mono);font-weight:700;font-size:28px;color:var(--cream);display:block;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);margin-top:7px;display:block}
+.chrow{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 18px}
+.chcard{flex:1;min-width:150px;display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:13px 16px}
+.chcard .ci{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;background:rgba(240,243,250,.06);flex:none}
+.chcard .cn{font-size:13px;color:var(--ink);font-weight:600}
+.chcard .cs{font-family:var(--mono);font-size:12px;color:var(--amber);margin-top:2px}
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+h2.sec{font-family:var(--disp);font-weight:500;font-size:18px;color:var(--cream);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.qitem{display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px solid var(--panel-line)}
+.qitem:last-child{border-bottom:none}
+.qdate{font-family:var(--mono);font-size:12px;color:var(--amber);text-align:center;flex:none;width:52px;line-height:1.25}
+.qdate b{display:block;font-size:17px;color:var(--cream);font-weight:700}
+.qemoji{font-size:22px;flex:none}
+.qmeta{flex:1;min-width:0}
+.qmeta .t{font-size:13.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.qmeta .s{font-size:11px;color:var(--mut);margin-top:2px}
+.badge{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,transparent);padding:3px 8px;border-radius:7px;flex:none}
+.pubitem{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid var(--panel-line)}
+.pubitem:last-child{border-bottom:none}
+.pubitem .t{font-size:12.5px;color:var(--ink);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pubitem .ch{font-family:var(--mono);font-size:9.5px;letter-spacing:.5px;padding:2px 6px;border-radius:6px;flex:none;color:var(--amber);background:color-mix(in srgb,var(--amber) 12%,transparent)}
+.pubitem .ch.en{color:var(--cyan);background:color-mix(in srgb,var(--cyan) 12%,transparent)}
+.pubitem .v{font-family:var(--mono);font-size:12px;color:var(--cyan);flex:none}
+.foot{text-align:center;color:var(--faint);font-size:12px;margin-top:30px;line-height:1.9}
+.foot a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--faint);margin:0 6px}
+a.reset{color:inherit;text-decoration:none}
+.err{display:none;text-align:center;color:var(--red);padding:14px;font-size:13px}
+@media(max-width:760px){
+  .grid2{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .pipe::before{left:12%;right:12%}
+}
+.anim{opacity:0;transform:translateY(10px);animation:up .6s cubic-bezier(.2,.7,.3,1) forwards}
+.anim.d1{animation-delay:.06s}.anim.d2{animation-delay:.12s}.anim.d3{animation-delay:.18s}.anim.d4{animation-delay:.24s}
+@keyframes up{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="aurora"></div><div class="grain"></div>
+<div class="wrap">
+  <header class="top anim">
+    <div class="brand">
+      <svg class="moon" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#f0b15a" stroke-width="3"/><path d="M32 10l5.5 11.2 12.4 1.8-9 8.7 2.1 12.3L32 38l-11.1 5.8 2.1-12.3-9-8.7 12.4-1.8z" fill="#f0b15a" opacity=".9"/></svg>
+      <div><h1>Dünya Kupası 2026</h1><div class="ey">yayın merkezi · canlı</div></div>
+    </div>
+    <div class="hstat">
+      <span class="live" id="live"><span class="dot"></span><span id="live-t">bağlanıyor…</span></span>
+      <span class="upd" id="upd">—</span>
+    </div>
+  </header>
+
+  <div class="err" id="err">Durum verisi alınamadı. Birazdan tekrar denenecek…</div>
+
+  <section class="card hero anim d1" id="hero">
+    <div class="glow"></div>
+    <div>
+      <div class="eyebrow">Sıradaki maç</div>
+      <div class="ttl" id="next-ttl">—</div>
+      <div class="chips" id="next-chips"></div>
+    </div>
+    <div class="cd">
+      <div class="lab" id="next-date">—</div>
+      <div class="clock" id="clock"></div>
+    </div>
+  </section>
+
+  <div class="chrow anim d2" id="chrow"></div>
+
+  <section class="card anim d2">
+    <div class="eyebrow">Son üretim hattı</div>
+    <div class="pipe" id="pipe"></div>
+  </section>
+
+  <div class="stats anim d2">
+    <div class="stat"><b id="s-queue">—</b><span>Kuyrukta</span></div>
+    <div class="stat"><b id="s-today">—</b><span>Bugün üretilen</span></div>
+    <div class="stat"><b id="s-pub">—</b><span>Yayında</span></div>
+    <div class="stat"><b id="s-views">—</b><span>Toplam izlenme</span></div>
+  </div>
+
+  <div class="grid2">
+    <section class="card anim d3">
+      <h2 class="sec">📅 Maç & yayın kuyruğu</h2>
+      <div id="queue"></div>
+    </section>
+    <section class="card anim d4">
+      <h2 class="sec">▶ Son yayınlananlar</h2>
+      <div id="published"></div>
+    </section>
+  </div>
+
+  <div class="foot anim d4">
+    <div id="foot-cron">—</div>
+    <div id="foot-ch">—</div>
+  </div>
+</div>
+
+<script>
+const STATUS_URL = "./status.json";
+const PIPE_ICONS = {prepare:"🎞", render:"⚙", merge:"🗜", publish:"▲"};
+let nextAt = null;
+
+function fmtViews(n){ return n>=1000 ? (n/1000).toFixed(1).replace(/\.0$/,"")+"B" : String(n); }
+function ago(iso){ const s=(Date.now()-new Date(iso))/1000; if(s<60)return"az önce"; if(s<3600)return Math.floor(s/60)+" dk önce"; if(s<86400)return Math.floor(s/3600)+" sa önce"; return Math.floor(s/86400)+" gün önce"; }
+function dpart(iso){ const d=new Date(iso); return {d:d.getDate(), m:d.toLocaleDateString("tr-TR",{month:"short"})}; }
+function pad(n){ return String(n).padStart(2,"0"); }
+
+function renderClock(){
+  const el=document.getElementById("clock");
+  if(!nextAt){ el.innerHTML=`<div class="unit"><b>—</b><span>bekliyor</span></div>`; return; }
+  let diff=(nextAt-Date.now())/1000;
+  const started = diff<=0;
+  diff=Math.abs(diff);
+  const dd=Math.floor(diff/86400); diff-=dd*86400;
+  const hh=Math.floor(diff/3600); diff-=hh*3600;
+  const mm=Math.floor(diff/60); const ss=Math.floor(diff-mm*60);
+  const u=(v,l)=>`<div class="unit"><b>${v}</b><span>${l}</span></div>`;
+  const sep=`<div class="sep">:</div>`;
+  el.innerHTML = (started?`<div class="unit"><b style="color:var(--green)">CANLI</b><span>başladı</span></div>`
+    : u(dd,"gün")+sep+u(pad(hh),"saat")+sep+u(pad(mm),"dk")+sep+u(pad(ss),"sn"));
+}
+
+function render(d){
+  document.getElementById("err").style.display="none";
+  const live=document.getElementById("live"), lt=document.getElementById("live-t");
+  const ok=d.automation?.healthy!==false;
+  live.classList.toggle("bad",!ok); lt.textContent= ok? "CANLI":"HATA";
+  document.getElementById("upd").textContent="güncellendi "+ago(d.updated_at);
+
+  const n=d.next;
+  if(n){
+    nextAt=new Date(n.publish_at);
+    document.getElementById("next-ttl").textContent=(n.emoji?n.emoji+" ":"")+n.title;
+    document.getElementById("next-chips").innerHTML=
+      (n.format?`<span class="chip amber">${n.format}</span>`:"")+
+      (n.dur?`<span class="chip">📍 ${n.dur}</span>`:"")+
+      `<span class="chip">maç bitince TR+EN üretilir</span>`;
+    const dt=new Date(n.publish_at);
+    document.getElementById("next-date").textContent="ilk düdük · "+dt.toLocaleString("tr-TR",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"});
+  } else { document.getElementById("next-ttl").textContent="Sırada maç yok"; document.getElementById("next-chips").innerHTML=""; nextAt=null; }
+  renderClock();
+
+  // kanallar
+  document.getElementById("chrow").innerHTML=(d.channels||[]).map(c=>{
+    const emo = c.key==="en" ? "🌍" : "🇹🇷";
+    const sub = c.error ? `<span style="color:var(--red)">token hatası</span>` : `${fmtViews(c.subs||0)} abone · ${c.videos||0} video`;
+    return `<a class="reset" href="${c.url||'#'}" target="_blank" rel="noopener"><div class="chcard">
+      <div class="ci">${emo}</div><div><div class="cn">${c.name}</div><div class="cs">${sub}</div></div></div></a>`;
+  }).join("");
+
+  document.getElementById("pipe").innerHTML=(d.pipeline||[]).map(p=>{
+    const ic = p.state==="done"?"✓" : p.state==="failed"?"✕" : (PIPE_ICONS[p.key]||"•");
+    return `<div class="step ${p.state}"><div class="node">${ic}</div><div class="nm">${p.label}</div><div class="dt">${p.detail||""}</div></div>`;
+  }).join("") || `<div class="step"><div class="nm" style="color:var(--mut)">Henüz çalışma yok</div></div>`;
+
+  const st=d.stats||{};
+  document.getElementById("s-queue").textContent=st.queue??0;
+  document.getElementById("s-today").textContent=st.today??0;
+  document.getElementById("s-pub").textContent=st.published??0;
+  document.getElementById("s-views").textContent=fmtViews(st.total_views??0);
+
+  document.getElementById("queue").innerHTML=(d.queue||[]).map(q=>{
+    const dp=dpart(q.publish_at);
+    return `<div class="qitem">
+      <div class="qdate"><b>${dp.d}</b>${dp.m}</div>
+      <div class="qemoji">${q.emoji||"🎬"}</div>
+      <div class="qmeta"><div class="t">${q.title}</div><div class="s">${q.dur||""}</div></div>
+      <div class="badge">${q.format||""}</div></div>`;
+  }).join("") || `<div class="qmeta"><div class="s">Kuyruk boş.</div></div>`;
+
+  document.getElementById("published").innerHTML=(d.published||[]).map(p=>{
+    const en = p.channel==="worlcuphq";
+    return `<a class="reset" href="${p.url}" target="_blank" rel="noopener"><div class="pubitem">
+      <span style="font-size:16px">${p.emoji||"🎬"}</span>
+      <span class="t">${p.title}</span>
+      <span class="ch ${en?'en':''}">${en?'EN':'TR'}</span>
+      <span class="v">▶ ${fmtViews(p.views||0)}</span></div></a>`;
+  }).join("") || `<div class="pubitem"><span class="t">Henüz yayınlanan yok.</span></div>`;
+
+  document.getElementById("foot-cron").textContent=d.automation?.cron_label||"";
+  document.getElementById("foot-ch").innerHTML=(d.channels||[]).filter(c=>c.url).map(c=>`<a href="${c.url}" target="_blank" rel="noopener">${c.name}</a>`).join(" · ");
+}
+
+async function load(){
+  try{
+    const r=await fetch(STATUS_URL+"?t="+Date.now());
+    if(!r.ok) throw new Error(r.status);
+    render(await r.json());
+  }catch(e){
+    document.getElementById("err").style.display="block";
+    document.getElementById("live-t").textContent="çevrimdışı";
+    document.getElementById("live").classList.add("bad");
+  }
+}
+load();
+setInterval(load,60000);
+setInterval(renderClock,1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+{
+  "updated_at": "2026-06-13T16:55:08.927271+00:00",
+  "automation": {
+    "healthy": true,
+    "cron_label": "Yarı-otomatik · tetik kelimesiyle üretim"
+  },
+  "channels": [
+    {
+      "key": "tr",
+      "name": "ThYsf",
+      "id": "UCwuQBJAjSlE8BUxmbw8vzlA",
+      "url": "https://youtube.com/channel/UCwuQBJAjSlE8BUxmbw8vzlA",
+      "subs": 597,
+      "videos": 38
+    },
+    {
+      "key": "en",
+      "name": "World Cup HQ",
+      "id": "UC3d2KK7-XRgDt-rM-G5LCMQ",
+      "url": "https://youtube.com/channel/UC3d2KK7-XRgDt-rM-G5LCMQ",
+      "subs": 62,
+      "videos": 66
+    }
+  ],
+  "next": {
+    "title": "Avustralya vs Türkiye",
+    "emoji": "🇹🇷",
+    "format": "D GRUBU",
+    "dur": "BC Place · Vancouver",
+    "publish_at": "2026-06-14T04:00Z"
+  },
+  "queue": [
+    {
+      "publish_at": "2026-06-14T04:00Z",
+      "emoji": "🇹🇷",
+      "title": "Avustralya vs Türkiye",
+      "dur": "BC Place · Vancouver",
+      "format": "D GRUBU",
+      "done": false
+    }
+  ],
+  "pipeline": [
+    {
+      "key": "prepare",
+      "label": "Veri",
+      "state": "done",
+      "detail": "web doğrulandı"
+    },
+    {
+      "key": "render",
+      "label": "Render",
+      "state": "done",
+      "detail": "Lambda"
+    },
+    {
+      "key": "merge",
+      "label": "QC",
+      "state": "done",
+      "detail": "kare montaj"
+    },
+    {
+      "key": "publish",
+      "label": "Yükle",
+      "state": "done",
+      "detail": "public"
+    }
+  ],
+  "stats": {
+    "queue": 1,
+    "today": 6,
+    "published": 9,
+    "total_views": 700,
+    "total_likes": 1
+  },
+  "published": [
+    {
+      "id": "oomyean9Ngo",
+      "title": "Dün Gece Çift Özet",
+      "emoji": "⚽",
+      "channel": "ThYsf",
+      "format": "Özet",
+      "url": "https://youtu.be/oomyean9Ngo",
+      "views": 1,
+      "likes": 0,
+      "published_at": "2026-06-13T11:54:36Z"
+    },
+    {
+      "id": "wWTOsdEgmQ4",
+      "title": "Türkiye Muhtemel 11 · Avustralya",
+      "emoji": "🇹🇷",
+      "channel": "ThYsf",
+      "format": "Maç Önü",
+      "url": "https://youtu.be/wWTOsdEgmQ4",
+      "views": 1,
+      "likes": 0,
+      "published_at": "2026-06-13T11:54:26Z"
+    },
+    {
+      "id": "EYnUQmSmTu8",
+      "title": "ABD 4-1 Paraguay · Türkiye'nin Grubu",
+      "emoji": "🔥",
+      "channel": "ThYsf",
+      "format": "Sonuç",
+      "url": "https://youtu.be/EYnUQmSmTu8",
+      "views": 0,
+      "likes": 0,
+      "published_at": "2026-06-13T11:54:23Z"
+    },
+    {
+      "id": "hcNSGJX4axM",
+      "title": "Today's Big Games · Brazil-Morocco",
+      "emoji": "🌍",
+      "channel": "worlcuphq",
+      "format": "Preview",
+      "url": "https://youtu.be/hcNSGJX4axM",
+      "views": 126,
+      "likes": 1,
+      "published_at": "2026-06-13T11:28:00Z"
+    },
+    {
+      "id": "Mcv43gIA178",
+      "title": "Canada's First Ever WC Point",
+      "emoji": "🇨🇦",
+      "channel": "worlcuphq",
+      "format": "Result",
+      "url": "https://youtu.be/Mcv43gIA178",
+      "views": 324,
+      "likes": 0,
+      "published_at": "2026-06-13T11:27:56Z"
+    },
+    {
+      "id": "qoCLKMlbBUA",
+      "title": "USA 4-1 Paraguay · Balogun Brace",
+      "emoji": "🇺🇸",
+      "channel": "worlcuphq",
+      "format": "Result",
+      "url": "https://youtu.be/qoCLKMlbBUA",
+      "views": 129,
+      "likes": 0,
+      "published_at": "2026-06-13T11:27:45Z"
+    },
+    {
+      "id": "B9CZzmftxys",
+      "title": "Güney Kore 2-1 Çekya",
+      "emoji": "🇰🇷",
+      "channel": "ThYsf",
+      "format": "Sonuç",
+      "url": "https://youtu.be/B9CZzmftxys",
+      "views": 46,
+      "likes": 0,
+      "published_at": "2026-06-12T05:08:42Z"
+    },
+    {
+      "id": "mC93_Nh4naI",
+      "title": "Türkiye-Avustralya Maç Önü",
+      "emoji": "🇹🇷",
+      "channel": "ThYsf",
+      "format": "Önizleme",
+      "url": "https://youtu.be/mC93_Nh4naI",
+      "views": 68,
+      "likes": 0,
+      "published_at": "2026-06-12T05:08:39Z"
+    },
+    {
+      "id": "V0xqAqUR-vY",
+      "title": "Meksika 2-0 Güney Afrika",
+      "emoji": "🇲🇽",
+      "channel": "ThYsf",
+      "format": "Sonuç",
+      "url": "https://youtu.be/V0xqAqUR-vY",
+      "views": 5,
+      "likes": 0,
+      "published_at": "2026-06-12T05:08:25Z"
+    }
+  ]
+}
