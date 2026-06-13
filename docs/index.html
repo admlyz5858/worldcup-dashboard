@@ -118,6 +118,24 @@ a.reset{color:inherit;text-decoration:none}
 .anim{opacity:0;transform:translateY(10px);animation:up .6s cubic-bezier(.2,.7,.3,1) forwards}
 .anim.d1{animation-delay:.06s}.anim.d2{animation-delay:.12s}.anim.d3{animation-delay:.18s}.anim.d4{animation-delay:.24s}
 @keyframes up{to{opacity:1;transform:none}}
+/* üretim siparişi */
+.ofield{margin-top:14px}
+.olab{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:8px}
+.oin{width:100%;background:var(--bg2);border:1px solid var(--panel-line);border-radius:12px;padding:13px 15px;color:var(--ink);font-family:var(--ui);font-size:15px;outline:none}
+.oin:focus{border-color:color-mix(in srgb,var(--amber) 55%,transparent)}
+.oseg{display:flex;gap:8px;flex-wrap:wrap}
+.oseg button{flex:1;min-width:90px;background:var(--bg2);border:1px solid var(--panel-line);border-radius:11px;padding:11px;color:var(--mut);font-family:var(--ui);font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+.oseg button.on{border-color:color-mix(in srgb,var(--amber) 65%,transparent);color:var(--cream);background:color-mix(in srgb,var(--amber) 12%,var(--bg2))}
+.ochecks{display:flex;gap:10px;flex-wrap:wrap}
+.ochk{flex:1;min-width:150px;display:flex;align-items:center;gap:9px;background:var(--bg2);border:1px solid var(--panel-line);border-radius:12px;padding:12px 14px;color:var(--mut);font-size:14px;font-weight:500;cursor:pointer;transition:.2s;user-select:none}
+.ochk.on{border-color:color-mix(in srgb,var(--amber) 55%,transparent);color:var(--ink)}
+.ochk input{accent-color:var(--amber);width:17px;height:17px}
+.obtn{width:100%;margin-top:18px;background:linear-gradient(180deg,#f3bd72,#e3a04d);border:none;border-radius:13px;padding:15px;color:#241606;font-family:var(--ui);font-weight:700;font-size:16px;letter-spacing:.3px;cursor:pointer;box-shadow:0 12px 30px -12px rgba(240,177,90,.7);transition:.2s}
+.obtn:active{transform:translateY(1px)}
+.ohint{font-size:11.5px;color:var(--faint);margin-top:11px;line-height:1.5}
+.opend{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.opend a{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--amber) 8%,transparent);border:1px solid color-mix(in srgb,var(--amber) 22%,transparent);border-radius:11px;padding:10px 13px;text-decoration:none;color:var(--ink);font-size:13px}
+.opend .od{font-family:var(--mono);font-size:11px;color:var(--amber);margin-left:auto}
 </style>
 </head>
 <body>
@@ -162,6 +180,33 @@ a.reset{color:inherit;text-decoration:none}
     <div class="stat"><b id="s-pub">—</b><span>Yayında</span></div>
     <div class="stat"><b id="s-views">—</b><span>Toplam izlenme</span></div>
   </div>
+
+  <section class="card anim d3" id="order-card">
+    <div class="eyebrow">Üretim siparişi</div>
+    <h2 class="sec" style="margin-top:8px">🎬 Yeni video üret</h2>
+    <div class="ofield">
+      <label class="olab" for="o-match">Maç / konu</label>
+      <input id="o-match" class="oin" type="text" placeholder="örn. Türkiye-Avustralya" />
+    </div>
+    <div class="ofield">
+      <label class="olab">Tip</label>
+      <div class="oseg" id="o-type">
+        <button type="button" data-v="Sonuç" class="on">Sonuç</button>
+        <button type="button" data-v="Maç Önü">Maç Önü</button>
+        <button type="button" data-v="Özet">Özet</button>
+      </div>
+    </div>
+    <div class="ofield">
+      <label class="olab">Kanallar</label>
+      <div class="ochecks">
+        <label class="ochk on"><input type="checkbox" id="o-tr" checked /> 🇹🇷 ThYsf (TR)</label>
+        <label class="ochk on"><input type="checkbox" id="o-en" checked /> 🌍 World Cup HQ (EN)</label>
+      </div>
+    </div>
+    <button class="obtn" id="o-submit">🎬 Sipariş Ver</button>
+    <div class="ohint">Buton GitHub'da hazır doldurulmuş bir "üretim siparişi" açar — sadece <b>Submit</b>'e bas. Bir sonraki çalışmamda doğrulanmış gerçek veriyle üretip seçtiğin kanal(lar)a yüklerim.</div>
+    <div class="opend" id="o-pending"></div>
+  </section>
 
   <div class="grid2">
     <section class="card anim d3">
@@ -264,7 +309,30 @@ function render(d){
 
   document.getElementById("foot-cron").textContent=d.automation?.cron_label||"";
   document.getElementById("foot-ch").innerHTML=(d.channels||[]).filter(c=>c.url).map(c=>`<a href="${c.url}" target="_blank" rel="noopener">${c.name}</a>`).join(" · ");
+  // sipariş formu: maç alanını sıradaki maçla ön-doldur + bekleyen siparişler
+  const mi=document.getElementById("o-match"); if(mi && !mi.value && d.next) mi.value=d.next.title;
+  document.getElementById("o-pending").innerHTML=(d.orders||[]).map(o=>
+    `<a href="${o.url}" target="_blank" rel="noopener">📥 <span>${(o.title||"").replace(/^\[ÜRETİM\]\s*/,"")}</span><span class="od">#${o.number}</span></a>`
+  ).join("");
 }
+
+// —— üretim siparişi formu ——
+const ORDER_REPO="admlyz5858/worldcup-dashboard";
+let oType="Sonuç";
+document.querySelectorAll("#o-type button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("#o-type button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); oType=b.dataset.v;
+}));
+document.querySelectorAll(".ochk input").forEach(c=>c.addEventListener("change",()=>c.closest(".ochk").classList.toggle("on",c.checked)));
+document.getElementById("o-submit").addEventListener("click",()=>{
+  const match=((document.getElementById("o-match").value)||"").trim()||"bugünkü maçlar";
+  const tr=document.getElementById("o-tr").checked, en=document.getElementById("o-en").checked;
+  if(!tr&&!en){ alert("En az bir kanal seç."); return; }
+  const chans=[tr?"TR":null,en?"EN":null].filter(Boolean).join(", ");
+  const title=`[ÜRETİM] ${match} · ${oType}`;
+  const body=[`Dashboard üretim siparişi`,``,`- Maç/konu: ${match}`,`- Tip: ${oType}`,`- Kanallar: ${chans}`,``,`> Claude bu siparişi doğrulanmış gerçek veriyle üretip ilgili kanal(lar)a yükleyecek, sonra bu issue'yu kapatacak.`].join("\n");
+  const url=`https://github.com/${ORDER_REPO}/issues/new?title=${encodeURIComponent(title)}&labels=order&body=${encodeURIComponent(body)}`;
+  window.open(url,"_blank","noopener");
+});
 
 async function load(){
   try{

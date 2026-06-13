@@ -81,6 +81,20 @@ total_views = sum(p["views"] for p in published)
 today = now.date().isoformat()
 today_count = sum(1 for p in published if (p.get("published_at") or "").startswith(today))
 
+# bekleyen üretim siparişleri (public issues, label=order — auth gerekmez)
+import urllib.request
+orders = []
+try:
+    req = urllib.request.Request(
+        "https://api.github.com/repos/admlyz5858/worldcup-dashboard/issues?labels=order&state=open&per_page=20",
+        headers={"Accept": "application/vnd.github+json", "User-Agent": "wc-dash"})
+    for it in json.load(urllib.request.urlopen(req, timeout=15)):
+        if "pull_request" in it:
+            continue
+        orders.append({"number": it["number"], "title": it["title"], "url": it["html_url"], "created_at": it["created_at"]})
+except Exception as e:
+    print("ORDERS FAIL:", str(e)[:100])
+
 nxt = qd.get("next")
 queue = qd.get("queue", [])
 pipeline = qd.get("pipeline") or [
@@ -96,6 +110,7 @@ status = {
     "channels": channels,
     "next": nxt,
     "queue": queue,
+    "orders": orders,
     "pipeline": pipeline,
     "stats": {"queue": len(queue), "today": today_count, "published": len(published),
               "total_views": total_views, "total_likes": sum(p["likes"] for p in published)},
