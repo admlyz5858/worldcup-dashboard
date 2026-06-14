@@ -1,25 +1,25 @@
 {
   "_note": "Sıradaki maç + kuyruk + son üretim hattı. Yeni maç/güncelleme olunca burayı düzenleyip push et.",
   "next": {
-    "title": "Avustralya vs Türkiye",
+    "title": "Türkiye vs Paraguay",
     "emoji": "🇹🇷",
-    "format": "D GRUBU",
-    "dur": "BC Place · Vancouver",
-    "publish_at": "2026-06-14T04:00:00Z"
+    "format": "D GRUBU · 2. MAÇ",
+    "dur": "Levi's Stadium · Santa Clara",
+    "publish_at": "2026-06-19T19:00:00Z"
   },
   "queue": [
     {
-      "publish_at": "2026-06-14T04:00:00Z",
+      "publish_at": "2026-06-19T19:00:00Z",
       "emoji": "🇹🇷",
-      "title": "Avustralya vs Türkiye",
-      "dur": "BC Place · Vancouver",
-      "format": "D GRUBU"
+      "title": "Türkiye vs Paraguay",
+      "dur": "Levi's Stadium · Santa Clara · zorunlu galibiyet",
+      "format": "D GRUBU · 2. MAÇ"
     }
   ],
   "pipeline": [
     {"key": "prepare", "label": "Veri", "state": "done", "detail": "web doğrulandı"},
-    {"key": "render", "label": "Render", "state": "done", "detail": "Lambda $0.22"},
-    {"key": "merge", "label": "QC", "state": "done", "detail": "6/6 temiz"},
+    {"key": "render", "label": "Render", "state": "done", "detail": "Lambda"},
+    {"key": "merge", "label": "QC", "state": "done", "detail": "temiz"},
     {"key": "publish", "label": "Yükle", "state": "done", "detail": "TR+EN public"}
   ]
 }
