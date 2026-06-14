@@ -1,5 +1,5 @@
 {
-  "_note": "Sıradaki maç + kuyruk + son üretim hattı. Yeni maç/güncelleme olunca burayı düzenleyip push et.",
+  "_note": "next = sıradaki maç (hero geri sayım). queue = zamanlanmış video yayınları. Yayınlanınca videos.json'a taşı.",
   "next": {
     "title": "Türkiye vs Paraguay",
     "emoji": "🇹🇷",
@@ -8,18 +8,17 @@
     "publish_at": "2026-06-19T19:00:00Z"
   },
   "queue": [
-    {
-      "publish_at": "2026-06-19T19:00:00Z",
-      "emoji": "🇹🇷",
-      "title": "Türkiye vs Paraguay",
-      "dur": "Levi's Stadium · Santa Clara · zorunlu galibiyet",
-      "format": "D GRUBU · 2. MAÇ"
-    }
+    { "id": "6kAzz1WTwN8", "publish_at": "2026-06-15T17:00:00Z", "emoji": "📊", "title": "D Grubu Tam Rehber", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "WIt07Y3ghsw", "publish_at": "2026-06-15T17:00:00Z", "emoji": "🌍", "title": "Group D Guide", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "FbFwRIlZXv4", "publish_at": "2026-06-16T17:00:00Z", "emoji": "⭐", "title": "Türkiye'nin 4 Yıldızı", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "9zjJNkORI7Q", "publish_at": "2026-06-16T17:00:00Z", "emoji": "⚽", "title": "Golden Boot Race", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "Yx0vkr5qda0", "publish_at": "2026-06-17T17:00:00Z", "emoji": "🥉", "title": "Türkiye 2002 Efsanesi", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "oqk7EXKe_i0", "publish_at": "2026-06-17T17:00:00Z", "emoji": "🔥", "title": "Teams to Watch", "dur": "worlcuphq · English", "format": "EN" }
   ],
   "pipeline": [
     {"key": "prepare", "label": "Veri", "state": "done", "detail": "web doğrulandı"},
     {"key": "render", "label": "Render", "state": "done", "detail": "Lambda"},
     {"key": "merge", "label": "QC", "state": "done", "detail": "temiz"},
-    {"key": "publish", "label": "Yükle", "state": "done", "detail": "TR+EN public"}
+    {"key": "publish", "label": "Yükle", "state": "done", "detail": "6 video zamanlandı"}
   ]
 }
