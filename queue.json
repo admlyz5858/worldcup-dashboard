@@ -13,12 +13,20 @@
     { "id": "FbFwRIlZXv4", "publish_at": "2026-06-16T17:00:00Z", "emoji": "⭐", "title": "Türkiye'nin 4 Yıldızı", "dur": "ThYsf · Türkçe", "format": "TR" },
     { "id": "9zjJNkORI7Q", "publish_at": "2026-06-16T17:00:00Z", "emoji": "⚽", "title": "Golden Boot Race", "dur": "worlcuphq · English", "format": "EN" },
     { "id": "Yx0vkr5qda0", "publish_at": "2026-06-17T17:00:00Z", "emoji": "🥉", "title": "Türkiye 2002 Efsanesi", "dur": "ThYsf · Türkçe", "format": "TR" },
-    { "id": "oqk7EXKe_i0", "publish_at": "2026-06-17T17:00:00Z", "emoji": "🔥", "title": "Teams to Watch", "dur": "worlcuphq · English", "format": "EN" }
+    { "id": "oqk7EXKe_i0", "publish_at": "2026-06-17T17:00:00Z", "emoji": "🔥", "title": "Teams to Watch", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "3YLp-YtYW9k", "publish_at": "2026-06-18T17:00:00Z", "emoji": "🇵🇾", "title": "Paraguay Kimdir? (Rakip Analizi)", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "yUxrSGY7fiU", "publish_at": "2026-06-18T17:00:00Z", "emoji": "🅰️", "title": "Group A Guide", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "q3Yzj7W26F4", "publish_at": "2026-06-19T17:00:00Z", "emoji": "🥉", "title": "Türkiye Dünya Kupası Tarihi", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "xdXvAvnNE1M", "publish_at": "2026-06-19T17:00:00Z", "emoji": "🇧🇷", "title": "Group C Guide", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "jcpv0R2g65w", "publish_at": "2026-06-20T17:00:00Z", "emoji": "⭐", "title": "Kenan Yıldız · Geleceğin Yıldızı", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "Ht5f0SwBth0", "publish_at": "2026-06-20T17:00:00Z", "emoji": "🏆", "title": "Title Favourites", "dur": "worlcuphq · English", "format": "EN" },
+    { "id": "eGrSIKOnhrY", "publish_at": "2026-06-21T17:00:00Z", "emoji": "🇹🇷", "title": "Türkiye-ABD · Son Şans (Maç Önü)", "dur": "ThYsf · Türkçe", "format": "TR" },
+    { "id": "x1eL4JqVUG0", "publish_at": "2026-06-21T17:00:00Z", "emoji": "⚽", "title": "Top Performers So Far", "dur": "worlcuphq · English", "format": "EN" }
   ],
   "pipeline": [
     {"key": "prepare", "label": "Veri", "state": "done", "detail": "web doğrulandı"},
     {"key": "render", "label": "Render", "state": "done", "detail": "Lambda"},
     {"key": "merge", "label": "QC", "state": "done", "detail": "temiz"},
-    {"key": "publish", "label": "Yükle", "state": "done", "detail": "6 video zamanlandı"}
+    {"key": "publish", "label": "Yükle", "state": "done", "detail": "14 video zamanlandı"}
   ]
 }
