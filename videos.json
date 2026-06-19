@@ -1,19 +1,128 @@
 [
-  {"id":"cTMBofDZ5dc","title":"Türkiye Turu Geçer mi? · Senaryolar","emoji":"🎯","channel":"ThYsf","format":"Analiz"},
-  {"id":"cU1HnUBapUc","title":"Avustralya 2-0 Türkiye","emoji":"🇦🇺","channel":"ThYsf","format":"Sonuç"},
-  {"id":"gAfP5y2cgOc","title":"Son Maçlar Özeti · 13-14 Haz","emoji":"⚽","channel":"ThYsf","format":"Özet"},
-  {"id":"kW4tOkRte6g","title":"Türkiye-Paraguay · Zorunlu Galibiyet","emoji":"🇹🇷","channel":"ThYsf","format":"Maç Önü"},
-  {"id":"YkcCJcqd2L4","title":"Australia 2-0 Türkiye","emoji":"🇦🇺","channel":"worlcuphq","format":"Result"},
-  {"id":"wU1mf7dl7hM","title":"Latest Results Recap · Jun 13-14","emoji":"🌍","channel":"worlcuphq","format":"Recap"},
-  {"id":"ytKdKpKsezU","title":"İlk Günler Özeti · 4 Maç","emoji":"⚽","channel":"ThYsf","format":"Özet"},
-  {"id":"VhAPEpy1nEY","title":"Opening Days Recap · Day 1-2","emoji":"🌍","channel":"worlcuphq","format":"Recap"},
-  {"id":"EYnUQmSmTu8","title":"ABD 4-1 Paraguay · Türkiye'nin Grubu","emoji":"🔥","channel":"ThYsf","format":"Sonuç"},
-  {"id":"wWTOsdEgmQ4","title":"Türkiye Muhtemel 11 · Avustralya","emoji":"🇹🇷","channel":"ThYsf","format":"Maç Önü"},
-  {"id":"oomyean9Ngo","title":"Dün Gece Çift Özet","emoji":"⚽","channel":"ThYsf","format":"Özet"},
-  {"id":"V0xqAqUR-vY","title":"Meksika 2-0 Güney Afrika","emoji":"🇲🇽","channel":"ThYsf","format":"Sonuç"},
-  {"id":"B9CZzmftxys","title":"Güney Kore 2-1 Çekya","emoji":"🇰🇷","channel":"ThYsf","format":"Sonuç"},
-  {"id":"mC93_Nh4naI","title":"Türkiye-Avustralya Maç Önü","emoji":"🇹🇷","channel":"ThYsf","format":"Önizleme"},
-  {"id":"qoCLKMlbBUA","title":"USA 4-1 Paraguay · Balogun Brace","emoji":"🇺🇸","channel":"worlcuphq","format":"Result"},
-  {"id":"Mcv43gIA178","title":"Canada's First Ever WC Point","emoji":"🇨🇦","channel":"worlcuphq","format":"Result"},
-  {"id":"hcNSGJX4axM","title":"Today's Big Games · Brazil-Morocco","emoji":"🌍","channel":"worlcuphq","format":"Preview"}
+  {
+    "id": "HacRNqX6ew0",
+    "title": "Paraguay'ı Yenmenin 3 Anahtarı",
+    "emoji": "🔑",
+    "channel": "ThYsf",
+    "format": "Maç Önü"
+  },
+  {
+    "id": "cTMBofDZ5dc",
+    "title": "Türkiye Turu Geçer mi? · Senaryolar",
+    "emoji": "🎯",
+    "channel": "ThYsf",
+    "format": "Analiz"
+  },
+  {
+    "id": "cU1HnUBapUc",
+    "title": "Avustralya 2-0 Türkiye",
+    "emoji": "🇦🇺",
+    "channel": "ThYsf",
+    "format": "Sonuç"
+  },
+  {
+    "id": "gAfP5y2cgOc",
+    "title": "Son Maçlar Özeti · 13-14 Haz",
+    "emoji": "⚽",
+    "channel": "ThYsf",
+    "format": "Özet"
+  },
+  {
+    "id": "kW4tOkRte6g",
+    "title": "Türkiye-Paraguay · Zorunlu Galibiyet",
+    "emoji": "🇹🇷",
+    "channel": "ThYsf",
+    "format": "Maç Önü"
+  },
+  {
+    "id": "YkcCJcqd2L4",
+    "title": "Australia 2-0 Türkiye",
+    "emoji": "🇦🇺",
+    "channel": "worlcuphq",
+    "format": "Result"
+  },
+  {
+    "id": "wU1mf7dl7hM",
+    "title": "Latest Results Recap · Jun 13-14",
+    "emoji": "🌍",
+    "channel": "worlcuphq",
+    "format": "Recap"
+  },
+  {
+    "id": "ytKdKpKsezU",
+    "title": "İlk Günler Özeti · 4 Maç",
+    "emoji": "⚽",
+    "channel": "ThYsf",
+    "format": "Özet"
+  },
+  {
+    "id": "VhAPEpy1nEY",
+    "title": "Opening Days Recap · Day 1-2",
+    "emoji": "🌍",
+    "channel": "worlcuphq",
+    "format": "Recap"
+  },
+  {
+    "id": "EYnUQmSmTu8",
+    "title": "ABD 4-1 Paraguay · Türkiye'nin Grubu",
+    "emoji": "🔥",
+    "channel": "ThYsf",
+    "format": "Sonuç"
+  },
+  {
+    "id": "wWTOsdEgmQ4",
+    "title": "Türkiye Muhtemel 11 · Avustralya",
+    "emoji": "🇹🇷",
+    "channel": "ThYsf",
+    "format": "Maç Önü"
+  },
+  {
+    "id": "oomyean9Ngo",
+    "title": "Dün Gece Çift Özet",
+    "emoji": "⚽",
+    "channel": "ThYsf",
+    "format": "Özet"
+  },
+  {
+    "id": "V0xqAqUR-vY",
+    "title": "Meksika 2-0 Güney Afrika",
+    "emoji": "🇲🇽",
+    "channel": "ThYsf",
+    "format": "Sonuç"
+  },
+  {
+    "id": "B9CZzmftxys",
+    "title": "Güney Kore 2-1 Çekya",
+    "emoji": "🇰🇷",
+    "channel": "ThYsf",
+    "format": "Sonuç"
+  },
+  {
+    "id": "mC93_Nh4naI",
+    "title": "Türkiye-Avustralya Maç Önü",
+    "emoji": "🇹🇷",
+    "channel": "ThYsf",
+    "format": "Önizleme"
+  },
+  {
+    "id": "qoCLKMlbBUA",
+    "title": "USA 4-1 Paraguay · Balogun Brace",
+    "emoji": "🇺🇸",
+    "channel": "worlcuphq",
+    "format": "Result"
+  },
+  {
+    "id": "Mcv43gIA178",
+    "title": "Canada's First Ever WC Point",
+    "emoji": "🇨🇦",
+    "channel": "worlcuphq",
+    "format": "Result"
+  },
+  {
+    "id": "hcNSGJX4axM",
+    "title": "Today's Big Games · Brazil-Morocco",
+    "emoji": "🌍",
+    "channel": "worlcuphq",
+    "format": "Preview"
+  }
 ]
