@@ -145,14 +145,6 @@
       "format": "TR"
     },
     {
-      "id": "eGrSIKOnhrY",
-      "publish_at": "2026-06-21T17:00:00Z",
-      "emoji": "🇹🇷",
-      "title": "Türkiye-ABD · Son Şans (Maç Önü)",
-      "dur": "ThYsf · Türkçe",
-      "format": "TR"
-    },
-    {
       "id": "x1eL4JqVUG0",
       "publish_at": "2026-06-21T17:00:00Z",
       "emoji": "⚽",
@@ -197,6 +189,14 @@
       "publish_at": "2026-06-24T17:00:00Z",
       "emoji": "💰",
       "title": "Türkiye'nin En Değerli 5'i",
+      "dur": "ThYsf · Türkçe",
+      "format": "TR"
+    },
+    {
+      "id": "z86v2U5ptOY",
+      "publish_at": "2026-06-25T12:00:00Z",
+      "emoji": "🇹🇷",
+      "title": "Türkiye-ABD · Veda Maçı (Muhtemel 11)",
       "dur": "ThYsf · Türkçe",
       "format": "TR"
     }
