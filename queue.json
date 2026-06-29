@@ -199,6 +199,38 @@
       "title": "Türkiye-ABD · Veda Maçı (Muhtemel 11)",
       "dur": "ThYsf · Türkçe",
       "format": "TR"
+    },
+    {
+      "id": "FG7SKSAh86M",
+      "publish_at": "2026-06-30T17:00:00Z",
+      "emoji": "🍁",
+      "title": "Canada 1-0 South Africa",
+      "dur": "worlcuphq · EN",
+      "format": "EN"
+    },
+    {
+      "id": "E9vnDXEjUSM",
+      "publish_at": "2026-07-01T17:00:00Z",
+      "emoji": "🔥",
+      "title": "World Cup Knockouts Begin",
+      "dur": "worlcuphq · EN",
+      "format": "EN"
+    },
+    {
+      "id": "H8RgQ-NZtCM",
+      "publish_at": "2026-07-02T17:00:00Z",
+      "emoji": "🇧🇷",
+      "title": "Brezilya 2-1 Japonya",
+      "dur": "ThYsf · Türkçe",
+      "format": "TR"
+    },
+    {
+      "id": "77HUWXABJB4",
+      "publish_at": "2026-07-03T17:00:00Z",
+      "emoji": "🔥",
+      "title": "Eleme Turu Başladı (özet)",
+      "dur": "ThYsf · Türkçe",
+      "format": "TR"
     }
   ],
   "pipeline": [
