@@ -1,11 +1,11 @@
 {
   "_note": "next = sıradaki maç (hero geri sayım). queue = zamanlanmış video yayınları. Yayınlanınca videos.json'a taşı.",
   "next": {
-    "title": "Türkiye vs Paraguay",
-    "emoji": "🇹🇷",
-    "format": "D GRUBU · 2. MAÇ",
-    "dur": "Levi's Stadium · Santa Clara",
-    "publish_at": "2026-06-19T19:00:00Z"
+    "title": "Hollanda - Fas",
+    "emoji": "🇳🇱",
+    "format": "SON 32 TURU",
+    "dur": "Estadio BBVA · Monterrey",
+    "publish_at": "2026-07-01T01:00:00Z"
   },
   "queue": [
     {
